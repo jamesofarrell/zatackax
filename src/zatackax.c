@@ -30,7 +30,7 @@ struct menu menuSettings = {
 };
 
 struct menu menuPlayer = {
-    9,
+    5,
     0,
 };
 
@@ -137,7 +137,7 @@ void resetPlayer(int player)
     p->speed = 1.0;
     p->invertedKeys = false;
     p->weapon = false;
-    p->ai = false;
+    p->ai = (player == 0 ? false :true);
     strncpy(p->name, defaultNames[player], PLAYER_NAME_LEN - 1);
 
     switch (player) {
@@ -146,7 +146,7 @@ void resetPlayer(int player)
         p->wkey = SDLK_UP;
         break;
     case 1:
-        p->lkey = 'z'; p->rkey = 'c'; p->wkey = 'x';
+        p->lkey = SDLK_LALT; p->rkey = SDLK_SPACE; p->wkey = SDLK_LSHIFT;
         break;
     case 2:
         p->lkey = 'v'; p->rkey = 'n'; p->wkey = 'b';
@@ -1856,7 +1856,7 @@ void displaySettingsMenu(void)
 int logicPlayerMenu(void)
 {
     if (enterButtonDown()) {
-        if (menuPlayer.choice == 8) {
+        if (menuPlayer.choice == 4) {
             playSound(SOUND_BEP, sound);
             curScene = curScene->parentScene;
         } else {
@@ -1881,11 +1881,7 @@ void displayPlayerMenu(void)
     c[1] = "PLAYER 2 CONFIG";
     c[2] = "PLAYER 3 CONFIG";
     c[3] = "PLAYER 4 CONFIG";
-    c[4] = "PLAYER 5 CONFIG";
-    c[5] = "PLAYER 6 CONFIG";
-    c[6] = "PLAYER 7 CONFIG";
-    c[7] = "PLAYER 8 CONFIG";
-    c[8] = "BACK";
+    c[4] = "BACK";
 
     displayMenu(c, &menuPlayer, 0);
 
@@ -2620,7 +2616,7 @@ void exitGame(int status)
     screen = SDL_SetVideoMode(WINDOW_W, WINDOW_H, SCREEN_BPP,
                               SDL_SWSURFACE);
 
-    saveSettings(".zatackax");
+    saveSettings("/media/data/local/home/.zatackax");
 
     exit(status);
 }
@@ -2633,7 +2629,7 @@ int main(void)
     WINDOW_H = DEFAULT_WINDOW_H;
 
     initPlayers1();
-    restoreSettings(".zatackax");
+    restoreSettings("/media/data/local/home/.zatackax");
 
     if (!init())
         return 1;

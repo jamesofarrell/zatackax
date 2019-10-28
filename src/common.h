@@ -4,14 +4,14 @@
 #define STRBUF  32
 
 /* DEFAULT WINDOW DIMENSIONS */
-#define DEFAULT_WINDOW_W    800
-#define DEFAULT_WINDOW_H    600
+#define DEFAULT_WINDOW_W    640
+#define DEFAULT_WINDOW_H    480
 #define SCREEN_BPP          32
 
 /* PLAYERS */
 #define MIN_PLAYERS         2   /* Minimum number of players */
-#define MAX_PLAYERS         8   /* Maximal number of players */
-#define DEFAULT_N_PLAYERS   2   /* Default number of players */
+#define MAX_PLAYERS         4   /* Maximal number of players */
+#define DEFAULT_N_PLAYERS   4   /* Default number of players */
 
 /* OUTPUT LEVEL */
 #define O_SILENT    0   /* Be absolutely quiet */

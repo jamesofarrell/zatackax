@@ -44,7 +44,7 @@
 #define ZATA_SIZE           4                   /* Thickness of the zata */
 #define ZATA_SPEED          0.09                /* Speed of the zata */
 #define TOLERANCE           ZATA_SIZE / 2       /* Collision detection */
-#define COUNTDOWN_TOLERANCE 50 * (ZATA_SIZE)    /* Suicide detection */
+#define COUNTDOWN_TOLERANCE 20 * (ZATA_SIZE)    /* Suicide detection */
 #define N_COLORS            8                   /* Available colors */
 
 /* MENUS */
@@ -63,8 +63,8 @@
 #define DEFAULT_MUSIC           true
 #define DEFAULT_WEAPONS         true
 #define DEFAULT_HOLES           true
-#define DEFAULT_BROADCASTS      true
-#define DEFAULT_BORDER          false
+#define DEFAULT_BROADCASTS      false
+#define DEFAULT_BORDER          true
 #define DEFAULT_DUELMODE        false
 #define DEFAULT_SCORECAP        false
 
